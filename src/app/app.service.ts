@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
-import { Panel } from './grid/list/list.component';
+import { Panel } from './list/list.component';
 import { CreatePanelPayload } from './interfaces/cell.interface';
 import { Parameter } from './interfaces/parameter.interface';
 
@@ -19,11 +19,15 @@ export class AppService {
   readonly panelListURL = "panel/list";
   readonly panelDetailURL = "panel/";
   readonly parameterURL = "parameters";
+  readonly parameterDetailURL = "parameter";
   readonly panelCreateURL = "panel/create";
+  readonly panelRecentURL = "panel/recent";
+
   constructor(private httpClient: HttpClient) { }
 
-  public getPanelList() :Observable<Panel[]> {
-    return this.httpClient.get<any>(`${this.apiPrefix}${this.panelListURL}`, httpOptions);
+  public getPanelList(paginationInfo: { limit: number, offset: number; }): Observable<Panel[]> {
+    const url = `${this.apiPrefix}${this.panelListURL}?limit=${paginationInfo.limit}`;
+    return this.httpClient.get<any>(url);
   }
 
   public getPanelByID(panelID: number) :Observable<Panel> {
@@ -39,15 +43,19 @@ export class AppService {
   }
 
   public getParameter(id: number) :Observable<Parameter> {
-    return this.httpClient.get<any>(`${this.apiPrefix}${this.parameterURL}/${id}`, httpOptions);
+    return this.httpClient.get<any>(`${this.apiPrefix}${this.parameterDetailURL}/${id}`, httpOptions);
   }
 
   public updateParameter(payload: { id: number, value: number; }) :Observable<Parameter> {
-    return this.httpClient.post<any>(`${this.apiPrefix}${this.parameterURL}/${payload.id}`,payload , httpOptions);
+    return this.httpClient.post<any>(`${this.apiPrefix}${this.parameterDetailURL}/${payload.id}`,payload , httpOptions);
   }
 
   public createPanel(payload: CreatePanelPayload) :Observable<Panel> {
     return this.httpClient.patch<any>(`${this.apiPrefix}${this.panelCreateURL}`,payload , httpOptions);
+  }
+
+  public deletePanel(panel_id: number) :Observable<any> {
+    return this.httpClient.delete<any>(`${this.apiPrefix}${this.panelDetailURL}${panel_id}`, httpOptions);
   }
 
   public initializeParameters() :Observable<Parameter[]> {

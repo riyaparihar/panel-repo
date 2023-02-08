@@ -1,19 +1,25 @@
 <div class="panel">
     <div class="panel-content">
-        <h1 class="panel-header">
+        <h1 class="header-content panel-header">
             Control Panel
             <span class="control-panel-button">
-                <button class="button button-gray" (click)="handleSavedPanelsClick()">Saved Panels</button>
                 <button class="button button-primary" (click)="handleConfigureClick()"
                    >{{configureButtonText}}</button>
+                   <ng-container *ngIf="!!panelName">
+                   <button class="button button-gray" (click)="handleAllClick()"
+                   >All Panels </button>
+                   <button class="button button-secondary" (click)="handleHomeClick()"
+                   >Home</button>
+                   </ng-container>
             </span>
         </h1>
+        <div class="header-bar"></div>
 
-        <div  class="" (click)="panelListState='out'" >
+        <div  class="">
             <div class="">
                 <div>
                     <mat-grid-list cols="3" rowHeight="2:1" class="grid-list">
-                        <ng-container *ngFor="let i of [1,2,3,4,5,6,7,8,9]">
+                        <ng-container *ngFor="let i of GRID_ARRAY">
                             <mat-grid-tile class="grid-tile" [class.grid-tile-initialized]="showCellInfo(i)">
                                 <span *ngIf="showCellInfo(i)" (click)="handleCellClick(i)" class="grid-tile-content">
                                     {{getComponentInfoByPosition(i)}}
@@ -29,14 +35,11 @@
             </div>
         </div>
         <!-- saved panels -->
-        <div class="panel-list-side" [@slideInOut]="panelListState">
+        <div class="panel-list-side "*ngIf="!panelName">
             <div class="side-panel-content">
-                <section class="side-panel-section" aria-labelledby="slide-over-heading">
+                <section class="side-panel-section">
                     <div class="panle-list">
-                        <button class="button-svg panel-close-button" (click)="panelListState='out'">
-                            <mat-icon  [inline]="true" svgIcon="icon-close"></mat-icon>
-                        </button>
-                        <app-list></app-list>
+                        <app-list [showRecentPanels]="true"></app-list>
                     </div>
                 </section>
             </div>

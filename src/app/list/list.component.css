@@ -1,0 +1,109 @@
+div.panel-list-items{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+div.divider{
+    border-radius: 10px;
+    width: 100%;
+    margin-top: 2px;
+    padding-bottom: 2px;
+    background-color:  rgba(128,128,128,0.5);
+}
+
+.panel-content{
+    display: flex;
+    flex-direction: row;
+    gap: 90px;
+    justify-content: space-between;
+    align-self: center;
+    align-items: center;
+    color: var(--bodyColor);
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 23px;
+}
+
+.panel-icon{
+    font-size: 10px !important;
+    font-weight: 200;
+    height: 48px !important;
+  
+}
+
+.panel-icon-recent{
+    width: 20% !important;
+}
+
+.panel-icon-all{
+    width:4% !important;
+}
+
+.panel-item:hover{
+    background-color:  rgba(128,128,128,0.2);
+    
+}
+
+.panel-item{
+    cursor: pointer;
+    display: flex; 
+}
+
+.panel-icon-delete{
+    color: red;
+    height: 28px!important;
+    font-weight: 400 !important;
+}
+
+.panel-create{
+    font-weight: 500;
+    cursor: pointer;
+}
+.panel-create:hover{
+    text-decoration: underline var(--primary);
+    color: var(--primary);
+}
+
+.panel-not-found{
+    color: var(--bodyColor);
+    font-weight: 200;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+}
+
+.panel-header{
+    color: var(--primaryLight) !important;
+    margin-left: 20px;
+}
+
+.all-panel-list{
+    margin-left: 50px;
+    align-self: center;
+    align-items: center;
+}
+
+.all-panel-list-wrapper{
+   display: grid;
+}
+
+.panel-button{
+    position: absolute;
+    float: right;
+    right: 0;
+    align-items: center;
+    top: 8px;
+}
+
+.paginator{
+    position: fixed;
+    bottom: 0;
+    float: right;
+    right: 0;
+    background-color: rgba(128,128,128,0.2);
+    font-size: medium;
+    color: var(--bodyColor)
+}

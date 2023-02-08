@@ -29,3 +29,9 @@ td.table-cell-input{
     float: right;
     right: 0px;
 }
+
+th.table-header{
+    font-family: sans-serif;
+    font-size: 20px;
+    color: var(--primaryLight);
+}

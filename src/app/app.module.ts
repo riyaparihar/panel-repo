@@ -13,20 +13,20 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GridComponent } from './grid/grid.component';
 import { CellComponent } from './cell/cell.component';
-import { ListComponent } from './grid/list/list.component';
-import { DetailComponent } from './grid/detail/detail.component';
-
-/*PIPES */
-import { JsonParsePipe } from './pipes/json-parse.pipe';
-import { ConfigurePanelDialogComponent } from './dialogs/configure-panel-dialog/configure-panel-dialog.component';
-import { CellActionDialogComponent } from './dialogs/cell-action-dialog/cell-action-dialog.component';
+import { ListComponent } from './list/list.component';
 import { ConfigurePanelComponent } from './configure-panel/configure-panel.component';
+
+/** Dialog */
+import { CellActionDialogComponent } from './dialogs/cell-action-dialog/cell-action-dialog.component';
+
 
 
 const MaterialModules = [
@@ -35,7 +35,9 @@ const MaterialModules = [
   MatDialogModule,
   MatIconModule,
   MatSelectModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatTooltipModule,
+  MatPaginatorModule
 ]
 
 @NgModule({
@@ -44,9 +46,6 @@ const MaterialModules = [
     GridComponent,
     CellComponent,
     ListComponent,
-    DetailComponent,
-    JsonParsePipe,
-    ConfigurePanelDialogComponent,
     CellActionDialogComponent,
     ConfigurePanelComponent
   ],
