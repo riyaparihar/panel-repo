@@ -1,0 +1,81 @@
+<div class="dialog-header">
+    <h2 class="header-content"> Configure Panel
+        <span class="action">
+            <button
+            (click)="handleCancel()"
+              class="button button-gray"
+            >Cancel</button>
+            <button
+            (click)="handleSave()"
+            [disabled]="showProgress"
+              class="button button-primary"
+            >
+            <div *ngIf="showProgress" class="loader h-5 w-5 mr-2.5"></div>
+            Save
+          </button>
+        </span>
+    </h2>
+    <div class="header-bar"></div>
+    <!-- <div class="dialog-footer">
+       
+      </div> -->
+
+  </div>
+  <div class="cofigure-body">
+    <table class="table" [formGroup]="panelForm">
+      <tr>
+        <th>
+          Cell Index
+        </th>
+        <th>
+          Parameters
+        </th>
+        <th>
+          Action
+         </th>
+      </tr>
+      <ng-container formArrayName="componentsForm">
+      <ng-container *ngFor="let form of componentsFormControl; index as index">
+        <ng-container [formGroup]="form">
+        <tr>
+          <td class="tabel-cell-input" [ngStyle]="{'width': '30%'}">
+            <input class="cell-item cell-item-input" readonly
+            formControlName="position"
+          />
+          </td>
+          <td class="tabel-cell" [ngStyle]="{'width': '30%'}">
+            <mat-select  class="cell-item" formControlName="parameter_id" >
+              <mat-option *ngFor="let parameter of parameters" [value]="parameter.id">
+                {{parameter.name}}
+              </mat-option>
+            </mat-select>
+          </td>
+          <td class="tabel-cell">
+            <mat-select  class="cell-item" formControlName="action">
+              <mat-option *ngFor="let action of actionSelectOptions" [value]="action.value">
+                {{action.label}}
+              </mat-option>
+            </mat-select>
+          </td>
+        </tr>
+      </ng-container>
+      </ng-container>
+    </ng-container>
+    </table>
+  
+  </div>
+  <!-- <div class="dialog-footer">
+    <button
+    (click)="handleCancel()"
+      class="button button-gray"
+    >Cancel</button>
+    <button
+    (click)="handleSave()"
+    [disabled]="showProgress"
+      class="button button-primary"
+    >
+    <div *ngIf="showProgress" class="loader h-5 w-5 mr-2.5"></div>
+    Save
+  </button>
+  </div> -->
+

@@ -1,0 +1,5 @@
+export enum ACTION_TYPE{
+    INCREMENT_DECREMENT_VALUE = 1 ,
+    SET_VALUE = 2,
+    DISPLAY_VALUE = 3 
+}

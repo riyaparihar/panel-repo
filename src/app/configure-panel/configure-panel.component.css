@@ -1,0 +1,31 @@
+.cell-item{
+    width: 100%;
+    padding: 8px;
+    background-color:  rgba(128, 128, 128, 0.1);
+    border-color: var(--primary);
+    border-radius: 4px;
+    border-width: 2px;
+    outline-color: var(--primary);
+    border: none;
+}
+
+td.table-cell-input{
+    width: 60% !important;
+}
+
+.cell-item-input{
+    padding: 12px !important;
+}
+.table{
+    width: 80%;
+    border-spacing: 40px 5px;
+    align-self: center;
+}
+
+.action{
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    float: right;
+    right: 0px;
+}

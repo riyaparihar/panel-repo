@@ -1,0 +1,45 @@
+<div class="panel">
+    <div class="panel-content">
+        <h1 class="panel-header">
+            Control Panel
+            <span class="control-panel-button">
+                <button class="button button-gray" (click)="handleSavedPanelsClick()">Saved Panels</button>
+                <button class="button button-primary" (click)="handleConfigureClick()"
+                   >{{configureButtonText}}</button>
+            </span>
+        </h1>
+
+        <div  class="" (click)="panelListState='out'" >
+            <div class="">
+                <div>
+                    <mat-grid-list cols="3" rowHeight="2:1" class="grid-list">
+                        <ng-container *ngFor="let i of [1,2,3,4,5,6,7,8,9]">
+                            <mat-grid-tile class="grid-tile" [class.grid-tile-initialized]="showCellInfo(i)">
+                                <span *ngIf="showCellInfo(i)" (click)="handleCellClick(i)" class="grid-tile-content">
+                                    {{getComponentInfoByPosition(i)}}
+                                </span>
+                            </mat-grid-tile>
+                            <ng-template #defaultTemplate>
+                                <mat-grid-tile class="grid-tile">{{i}}</mat-grid-tile>
+                            </ng-template>
+                        </ng-container>
+                    </mat-grid-list>
+                </div>
+
+            </div>
+        </div>
+        <!-- saved panels -->
+        <div class="panel-list-side" [@slideInOut]="panelListState">
+            <div class="side-panel-content">
+                <section class="side-panel-section" aria-labelledby="slide-over-heading">
+                    <div class="panle-list">
+                        <button class="button-svg panel-close-button" (click)="panelListState='out'">
+                            <mat-icon  [inline]="true" svgIcon="icon-close"></mat-icon>
+                        </button>
+                        <app-list></app-list>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

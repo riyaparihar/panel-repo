@@ -1,0 +1,46 @@
+<div class="dialog-header">
+    <h2 class="dialog-header-content"> Action</h2>
+  </div>
+  <div class="dialog-body">
+    <ng-container *ngIf="isDisplayValueType; else updateParameterTemplate">
+            <ng-container [ngTemplateOutlet]="displayParameterTemplate"></ng-container>
+        
+    </ng-container>
+  </div>
+  <div class="dialog-footer">
+    <button
+    (click)="handleCancel()"
+      class="button button-gray"
+    >Cancel</button>
+    <button *ngIf="!isDisplayValueType"
+    (click)="handleSave()"
+      class="button button-primary"
+    >Save</button>
+  </div>
+
+  <ng-template #displayParameterTemplate>
+    <div class="parameter-display-content">
+       {{parameter.name}} = {{parameter.value}}
+    </div>
+  </ng-template>
+
+
+  <ng-template #updateParameterTemplate>
+    <div class="parameter-update">
+        
+    <input [readOnly]="isIncrementDecrementType" class="input" #parameterInput="ngModel" [(ngModel)]="parameter.value" type="number" min="-100" max="100"   pattern="\d*"/>
+    <span *ngIf="isIncrementDecrementType" class="parameter-action">
+        <button (click)="handleIncrementDecrement('increment')" class="button-svg">
+            <mat-icon inline="true" svgIcon="icon-plus"></mat-icon>
+        </button>
+        <button (click)="handleIncrementDecrement('decrement')"  class="button-svg">
+            <mat-icon inline="true" svgIcon="icon-minus"></mat-icon>
+        </button>
+    </span>
+    </div>
+    <p class="input-error" *ngIf="parameterInput?.touched && parameterInput?.invalid">
+        {{getErrors(parameterInput.errors)}}
+    </p>
+  </ng-template>
+
+  

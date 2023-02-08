@@ -1,0 +1,46 @@
+<div class="">
+    <div class="heading-warp">
+        <h1 class="header-content">
+            Saved Panel List
+        </h1>
+        <div class="header-bar"></div>
+    </div>
+  
+        <div class="panel-list-items" *ngIf="list$ |async as list">
+        <ng-container *ngFor="let item of list">
+            <div class="panel-item" (click)="handleRowClick(item)">
+            <div class="panel-content">
+                <mat-icon class="panel-icon" [inline]="true" svgIcon="icon-panel"></mat-icon>
+                {{item.name}}
+            </div>
+            <div class="divider"></div>
+            </div>
+        </ng-container>
+        <!-- <div class="table-content">
+            <div class="table-row header">
+                <div class="table-cell header-content">
+                    Name
+                </div>
+                <div class="table-cell header-content">
+                    parameters
+                </div>
+                <div class="tabel-cell tabel-action">
+                    
+                </div>
+            </div>
+            <ng-container *ngFor="let item of list">
+                <div class="table-row" (click)="handleRowClick(item)">
+                    <div class="table-cell">
+                        {{item.name}}
+                    </div>
+                    <div class="table-cell">
+                        parameters
+                    </div>
+                    <div class="tabel-cell tabel-action">
+                        <button> View Detail</button>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div> -->
+</div>
