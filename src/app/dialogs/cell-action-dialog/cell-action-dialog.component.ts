@@ -70,11 +70,11 @@ export class CellActionDialogComponent implements OnInit {
     this.dialogRef.close();
     const parameterValue = this.parameter.value;
     // TO_DO: remove +, 0 from beginning
-    if (
-      this.parameter.value.toString().startsWith('+') ||
-      this.parameter.value.toString().startsWith('0')
-    ) {
-    }
+    // if (
+    //   this.parameter.value.toString().startsWith('+') ||
+    //   this.parameter.value.toString().startsWith('0')
+    // ) {
+    // }
     const payload = { id: this.parameter.id, value: this.parameter.value };
     this.service.updateParameter(payload).subscribe({
       next: (res) => {
@@ -98,7 +98,7 @@ export class CellActionDialogComponent implements OnInit {
     if (error?.['pattern']) {
       return `Must be an integer value`;
     }
-    return '';
+    return 'valid input required';
   }
 
   ngOnInit(): void {

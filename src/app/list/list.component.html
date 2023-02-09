@@ -2,7 +2,8 @@
     <div class="heading-warp">
         <h1 class="header-content panel-header">
             {{showRecentPanels? 'Recent Panels': 'All Panels'}}
-            <button *ngIf="panelList && panelList.length>LIST_LIMIT" class="button button-gray panel-button"
+
+            <button *ngIf="showPanelButton()" class="button button-gray panel-button"
                 (click)="handleClick()"> {{showRecentPanels?'View all panels': 'Back to home'}}</button>
         </h1>
         <div class="header-bar"></div>

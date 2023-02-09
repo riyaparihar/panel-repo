@@ -79,6 +79,14 @@ export class ListComponent implements OnInit {
     this.list = this.panelList.slice(start, end);
   }
 
+  showPanelButton(): boolean {
+    if (this.showRecentPanels) {
+      return this.panelList && this.panelList.length>LIST_LIMIT
+    }
+    return true;
+  }
+  
+
   private getSavedPanels() {
     this.service.getPanelList().subscribe({
       next: (res) => {

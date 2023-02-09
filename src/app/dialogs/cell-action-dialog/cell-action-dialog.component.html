@@ -2,9 +2,11 @@
   <h2 class="dialog-header-content">{{title}}</h2>
 </div>
 <div class="dialog-body">
+  <ng-container *ngIf="parameter">
   <ng-container *ngIf="isDisplayValueType; else updateParameterTemplate">
     <ng-container [ngTemplateOutlet]="displayParameterTemplate"></ng-container>
 
+  </ng-container>
   </ng-container>
 </div>
 <div class="dialog-footer">
@@ -22,7 +24,7 @@
 <ng-template #updateParameterTemplate>
   <div class="parameter-update">
 
-    <input [readOnly]="isIncrementDecrementType" class="input" #parameterInput="ngModel" [(ngModel)]="parameter.value"
+    <input [readOnly]="isIncrementDecrementType" required class="input" #parameterInput="ngModel" type="number" [(ngModel)]="parameter.value"
       min="-100" max="100" [pattern]="ONLY_INTEGER_REGEX" />
     <span *ngIf="isIncrementDecrementType" class="parameter-action">
       <button [matTooltip]="HELP_TEXT.INCREMENT_PARAMETER_TOOLTIP" (click)="handleIncrementDecrement('increment')"
@@ -35,7 +37,7 @@
       </button>
     </span>
   </div>
-  <p class="input-error" *ngIf="parameterInput?.touched && parameterInput?.invalid">
+  <p class="input-error" *ngIf="parameterInput?.touched && parameterInput?.invalid ">
     {{getErrorText(parameterInput.errors)}}
   </p>
 </ng-template>

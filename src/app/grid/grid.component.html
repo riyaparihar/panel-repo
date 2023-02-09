@@ -1,7 +1,7 @@
 <div class="panel">
     <div class="panel-content">
         <h1 class="header-content panel-header">
-            Control Panel
+            {{!!panelName? panelName : 'Configure Panel'}}
             <span class="control-panel-button">
                 <button class="button button-primary" (click)="handleConfigureClick()">{{configureButtonText}}</button>
                 <ng-container *ngIf="!!panelName">
