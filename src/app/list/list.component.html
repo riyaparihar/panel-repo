@@ -1,41 +1,40 @@
 <div [ngClass]="{'all-panel-list-wrapper': !showRecentPanels}">
     <div class="heading-warp">
         <h1 class="header-content panel-header">
-           {{showRecentPanels? 'Recent Panels': 'All Panels'}} 
-           <button *ngIf="panelList?.length || 10>LIST_LIMIT" class="button button-gray panel-button" (click)="handleClick()"> {{showRecentPanels?'View all panels': 'Back to home'}}</button>
+            {{showRecentPanels? 'Recent Panels': 'All Panels'}}
+            <button *ngIf="panelList && panelList.length>LIST_LIMIT" class="button button-gray panel-button"
+                (click)="handleClick()"> {{showRecentPanels?'View all panels': 'Back to home'}}</button>
         </h1>
         <div class="header-bar"></div>
     </div>
-  
-        <div class="panel-list-items" [ngClass]="{'all-panel-list': !showRecentPanels}">
+
+    <div class="panel-list-items" [ngClass]="{'all-panel-list': !showRecentPanels}">
         <ng-container *ngIf="list?.length; else notFoundTemplate">
-        <ng-container *ngFor="let item of list">
-            <div class="panel-item" (click)="handleRowClick(item)">
-            <div class="panel-content">
-                <mat-icon class="panel-icon" [ngClass]="showRecentPanels?'panel-icon-recent': 'panel-icon-all'" [inline]="true" svgIcon="icon-panel"></mat-icon>
-               
-                {{item.name}}
-                <mat-icon [matTooltip]="HELP_TEXT.DELETE_TOOLTIP" (click)="$event.stopPropagation(); handleDeleteClick(item.id)" class="panel-icon-delete" [inline]="true" svgIcon="icon-remove"></mat-icon>
-            </div>
-          
-            </div>
-        </ng-container>
+            <ng-container *ngFor="let item of list">
+                <div class="panel-item" (click)="handleRowClick(item)">
+                    <div class="panel-content">
+                        <mat-icon class="panel-icon" [ngClass]="showRecentPanels?'panel-icon-recent': 'panel-icon-all'"
+                            [inline]="true" svgIcon="icon-panel"></mat-icon>
+
+                        {{item.name}}
+                        <mat-icon [matTooltip]="HELP_TEXT.DELETE_TOOLTIP"
+                            (click)="$event.stopPropagation(); handleDeleteClick(item.id)" class="panel-icon-delete"
+                            [inline]="true" svgIcon="icon-remove"></mat-icon>
+                    </div>
+                </div>
+            </ng-container>
         </ng-container>
         <ng-template #notFoundTemplate>
             <div class="panel-not-found">
-                Not Created yet. <span (click)="$event.stopPropagation(); handleCreateNewClick()" class="panel-create"> Create new </span>
+                Not Created yet. <span (click)="$event.stopPropagation(); handleCreateNewClick()" class="panel-create">
+                    Create new </span>
             </div>
         </ng-template>
 
-</div>
-<div class="paginator">
-<mat-paginator  *ngIf="!showRecentPanels && panelList?.length && panelList.length>LIST_LIMIT"
-[pageIndex]="paginationInfo.offset-1"
-[pageSize]="8"
-[hidePageSize]="true"
-[showFirstLastButtons]="true"
-[length]="panelList.length||0"
-(page)="onPaginate($event)"
->
-</mat-paginator>
-</div>
+    </div>
+    <div class="paginator">
+        <mat-paginator *ngIf="!showRecentPanels && panelList?.length && panelList.length>LIST_LIMIT"
+            [pageIndex]="paginationInfo.offset-1" [pageSize]="8" [hidePageSize]="true" [showFirstLastButtons]="true"
+            [length]="panelList.length||0" (page)="onPaginate($event)">
+        </mat-paginator>
+    </div>

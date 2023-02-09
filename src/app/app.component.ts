@@ -6,11 +6,11 @@ import { ICONS } from './constants/icons.constant';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
   title = 'control-panel';
-  svgIcons: Array<{ name: string; path: string; }> = ICONS;
+  svgIcons: Array<{ name: string; path: string }> = ICONS;
   constructor(
     private matIconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer
@@ -19,8 +19,7 @@ export class AppComponent {
       this.addSvgIcon(item.name, item.path);
     });
   }
-  
-  
+
   addSvgIcon(name: string, path: string) {
     this.matIconRegistry.addSvgIcon(
       name,

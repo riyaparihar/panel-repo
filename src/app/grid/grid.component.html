@@ -3,19 +3,16 @@
         <h1 class="header-content panel-header">
             Control Panel
             <span class="control-panel-button">
-                <button class="button button-primary" (click)="handleConfigureClick()"
-                   >{{configureButtonText}}</button>
-                   <ng-container *ngIf="!!panelName">
-                   <button class="button button-gray" (click)="handleAllClick()"
-                   >All Panels </button>
-                   <button class="button button-secondary" (click)="handleHomeClick()"
-                   >Home</button>
-                   </ng-container>
+                <button class="button button-primary" (click)="handleConfigureClick()">{{configureButtonText}}</button>
+                <ng-container *ngIf="!!panelName">
+                    <button class="button button-gray" (click)="handleAllClick()">All Panels </button>
+                    <button class="button button-secondary" (click)="handleHomeClick()">Home</button>
+                </ng-container>
             </span>
         </h1>
         <div class="header-bar"></div>
 
-        <div  class="">
+        <div class="">
             <div class="">
                 <div>
                     <mat-grid-list cols="3" rowHeight="2:1" class="grid-list">
@@ -35,7 +32,7 @@
             </div>
         </div>
         <!-- saved panels -->
-        <div class="panel-list-side "*ngIf="!panelName">
+        <div class="panel-list-side " *ngIf="!panelName">
             <div class="side-panel-content">
                 <section class="side-panel-section">
                     <div class="panle-list">

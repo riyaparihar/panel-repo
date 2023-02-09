@@ -1,16 +1,6 @@
-import {
-  animate,
-  state,
-  style,
-  transition,
-  trigger,
-} from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import {
-  ActivatedRoute,
-  Router,
-} from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { concatMap, of } from 'rxjs';
 import { AppService } from '../app.service';
 import { GRID_ARRAY } from '../constants/grid.constant';
@@ -18,7 +8,7 @@ import { CellActionDialogComponent } from '../dialogs/cell-action-dialog/cell-ac
 import { Cell } from '../interfaces/cell.interface';
 import { Parameter } from '../interfaces/parameter.interface';
 import { StoreService } from '../store.service';
-import { Panel } from '../list/list.component';
+import { Panel } from '../interfaces/panel.interface';
 
 @Component({
   selector: 'app-grid',
@@ -47,7 +37,6 @@ export class GridComponent implements OnInit {
     if (!!this.panelName) {
       this.fetchPanelInfo();
     }
-    console.log('test');
   }
 
   get components() {
@@ -61,7 +50,6 @@ export class GridComponent implements OnInit {
   }
 
   getComponentInfoByPosition(i: number) {
-    // TO_DO: components inerface
     if (this.components?.length) {
       const cell = this.findComponent(i);
       const parameter = this.parameters.find(

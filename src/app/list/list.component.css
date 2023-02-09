@@ -1,4 +1,4 @@
-div.panel-list-items{
+div.panel-list-items {
     margin-top: 10px;
     display: flex;
     flex-direction: column;
@@ -6,15 +6,15 @@ div.panel-list-items{
 
 }
 
-div.divider{
+div.divider {
     border-radius: 10px;
     width: 100%;
     margin-top: 2px;
     padding-bottom: 2px;
-    background-color:  rgba(128,128,128,0.5);
+    background-color: rgba(128, 128, 128, 0.5);
 }
 
-.panel-content{
+.panel-content {
     display: flex;
     flex-direction: row;
     gap: 90px;
@@ -27,47 +27,48 @@ div.divider{
     font-size: 23px;
 }
 
-.panel-icon{
+.panel-icon {
     font-size: 10px !important;
     font-weight: 200;
     height: 48px !important;
-  
+
 }
 
-.panel-icon-recent{
+.panel-icon-recent {
     width: 20% !important;
 }
 
-.panel-icon-all{
-    width:4% !important;
+.panel-icon-all {
+    width: 4% !important;
 }
 
-.panel-item:hover{
-    background-color:  rgba(128,128,128,0.2);
-    
+.panel-item:hover {
+    background-color: rgba(128, 128, 128, 0.2);
+
 }
 
-.panel-item{
+.panel-item {
     cursor: pointer;
-    display: flex; 
+    display: flex;
 }
 
-.panel-icon-delete{
+.panel-icon-delete {
     color: red;
-    height: 28px!important;
+    height: 28px !important;
     font-weight: 400 !important;
 }
 
-.panel-create{
+.panel-create {
     font-weight: 500;
     cursor: pointer;
 }
-.panel-create:hover{
+
+.panel-create:hover {
     text-decoration: underline var(--primary);
     color: var(--primary);
 }
 
-.panel-not-found{
+.panel-not-found {
     color: var(--bodyColor);
     font-weight: 200;
     align-items: center;
@@ -75,22 +76,22 @@ div.divider{
     align-self: center;
 }
 
-.panel-header{
+.panel-header {
     color: var(--primaryLight) !important;
     margin-left: 20px;
 }
 
-.all-panel-list{
+.all-panel-list {
     margin-left: 50px;
     align-self: center;
     align-items: center;
 }
 
-.all-panel-list-wrapper{
-   display: grid;
+.all-panel-list-wrapper {
+    display: grid;
 }
 
-.panel-button{
+.panel-button {
     position: absolute;
     float: right;
     right: 0;
@@ -98,12 +99,12 @@ div.divider{
     top: 8px;
 }
 
-.paginator{
+.paginator {
     position: fixed;
     bottom: 0;
     float: right;
     right: 0;
-    background-color: rgba(128,128,128,0.2);
+    background-color: rgba(128, 128, 128, 0.2);
     font-size: medium;
     color: var(--bodyColor)
 }

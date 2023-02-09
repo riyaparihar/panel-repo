@@ -16,18 +16,14 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GridComponent } from './grid/grid.component';
-import { CellComponent } from './cell/cell.component';
 import { ListComponent } from './list/list.component';
 import { ConfigurePanelComponent } from './configure-panel/configure-panel.component';
 
 /** Dialog */
 import { CellActionDialogComponent } from './dialogs/cell-action-dialog/cell-action-dialog.component';
-
-
 
 const MaterialModules = [
   MatGridListModule,
@@ -37,17 +33,16 @@ const MaterialModules = [
   MatSelectModule,
   MatSnackBarModule,
   MatTooltipModule,
-  MatPaginatorModule
-]
+  MatPaginatorModule,
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     GridComponent,
-    CellComponent,
     ListComponent,
     CellActionDialogComponent,
-    ConfigurePanelComponent
+    ConfigurePanelComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,9 +52,9 @@ const MaterialModules = [
     BrowserAnimationsModule,
     HttpClientModule,
     MaterialModules,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

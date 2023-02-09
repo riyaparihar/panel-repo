@@ -1,7 +1,7 @@
-.cell-item{
+.cell-item {
     width: 100%;
     padding: 8px;
-    background-color:  rgba(128, 128, 128, 0.1);
+    background-color: rgba(128, 128, 128, 0.1);
     border-color: var(--primary);
     border-radius: 4px;
     border-width: 2px;
@@ -9,20 +9,21 @@
     border: none;
 }
 
-td.table-cell-input{
+td.table-cell-input {
     width: 60% !important;
 }
 
-.cell-item-input{
+.cell-item-input {
     padding: 12px !important;
 }
-.table{
+
+.table {
     width: 80%;
     border-spacing: 40px 5px;
     align-self: center;
 }
 
-.action{
+.action {
     display: flex;
     flex-direction: row;
     gap: 4px;
@@ -30,7 +31,7 @@ td.table-cell-input{
     right: 0px;
 }
 
-th.table-header{
+th.table-header {
     font-family: sans-serif;
     font-size: 20px;
     color: var(--primaryLight);

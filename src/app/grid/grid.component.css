@@ -2,14 +2,14 @@ mat-grid-tile {
     background: var(--secondary);
 }
 
-.sidebar-image{
-        display: none;
-      background-image: url('../../assets/icons/svg/undraw_control_panel_re_y3ar.svg');
-      background-repeat: no-repeat;
-      background-size: cover;
+.sidebar-image {
+    display: none;
+    background-image: url('../../assets/icons/svg/undraw_control_panel_re_y3ar.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.grid{
+.grid {
     margin-top: 10px;
     margin-left: 50px;
     align-self: center;
@@ -19,23 +19,23 @@ mat-grid-tile {
     gap: 10px
 }
 
-.grid-panel{
+.grid-panel {
     display: grid;
     grid-column: span 2 / span 2;
     gap: 10px
 }
 
-.grid-list{
+.grid-list {
     width: 65%;
     padding-bottom: 0px !important;
     margin-top: 20px;
 }
 
-.grid-tile{
-        margin: 0;
-        font-size: 20px;
-        font-weight: bold;
-        transition: 0.5s;
+.grid-tile {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+    transition: 0.5s;
 
 }
 
@@ -44,20 +44,19 @@ mat-grid-tile {
 }
 
 .grid-tile-content:hover {
-   color:rgba(128,128,128,0.1);
+    color: rgba(128, 128, 128, 0.1);
 }
 
-.grid-tile-initialized{
-   
-    background:var(--primaryLight)
-   
+.grid-tile-initialized {
+
+    background: var(--primaryLight)
 }
 
-.grid-tile-initialized:hover{
-    color:white;
+.grid-tile-initialized:hover {
+    color: white;
 }
 
-.control-panel-button{
+.control-panel-button {
     float: right;
     display: flex;
     flex-direction: row;
@@ -67,85 +66,94 @@ mat-grid-tile {
 
 
 
-.control-panel{
-   margin-top: 32px;
+.control-panel {
+    margin-top: 32px;
     display: grid;
     /* flex: 1 1 0%; */
     /* min-height: 100vh; */
     /* flex-direction: column;
     justify-content: space-between; */
-     /* padding-top:  32px;
+    /* padding-top:  32px;
     padding-bottom: 32px; */
 }
 
-.panel{
-    padding: 1rem/* 16px */;
+.panel {
+    padding: 1rem
+        /* 16px */
+    ;
+
     @media (min-width: 980px) {
         .mdl\:p-6 {
-            padding: 1.5rem/* 24px */;
+            padding: 1.5rem
+                /* 24px */
+            ;
         }
     }
+
     @media (min-width: 1380px) {
         .xlm\:p-8 {
-            padding: 2rem/* 32px */;
+            padding: 2rem
+                /* 32px */
+            ;
         }
     }
+
     margin-left: auto;
     margin-right: auto;
 
 }
 
-.panel-content{
+.panel-content {
     display: flex;
     flex-direction: column;
     gap: 12px;
     justify-content: flex-end;
 }
 
-.panel-list-side{
+.panel-list-side {
     position: fixed;
     top: 0px;
     right: 0px;
     bottom: 0px;
     left: 0px;
-     overflow: hidden;
-      /* z-index: 50; */
-      width: 30vw;
-        left: auto;
+    overflow: hidden;
+    /* z-index: 50; */
+    width: 30vw;
+    left: auto;
 }
 
-.side-panel-content{
+.side-panel-content {
     position: absolute;
     top: 0px;
     right: 0px;
     bottom: 0px;
     left: 0px;
-     overflow: hidden;
+    overflow: hidden;
 }
 
-.side-panel-section{
+.side-panel-section {
     max-width: 100%;
     display: flex;
-      top: 0px;
+    top: 0px;
     bottom: 0px;
-    position:absolute;
+    position: absolute;
     right: 0px;
     background: rgba(128, 128, 128, 0.1);
     width: 100%;
 }
 
-.panle-list{
+.panle-list {
     width: 100%;
 }
 
-.panel-header{
+.panel-header {
     display: flex;
     flex-direction: row;
     width: 60%;
     justify-content: space-between;
 }
 
-.panel-close-button{
+.panel-close-button {
     float: right;
     height: 25px;
     color: var(--primary);

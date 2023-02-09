@@ -8,7 +8,7 @@ import { HELP_TEXT } from 'src/app/enums/help-text.enum';
 import { Cell } from 'src/app/interfaces/cell.interface';
 import { Parameter } from 'src/app/interfaces/parameter.interface';
 
-type ValidationType = "min" | "max" | "pattern";
+type ValidationType = 'min' | 'max' | 'pattern';
 
 @Component({
   selector: 'app-cell-action-dialog',
@@ -18,7 +18,7 @@ type ValidationType = "min" | "max" | "pattern";
 export class CellActionDialogComponent implements OnInit {
   readonly ACTION_TYPE = ACTION_TYPE;
   readonly HELP_TEXT = HELP_TEXT;
-  readonly ONLY_INTEGER_REGEX=/^[-,+]?[0-9]*$/
+  readonly ONLY_INTEGER_REGEX = /^[-,+]?[0-9]*$/;
 
   parameter!: Parameter;
   constructor(
@@ -47,17 +47,16 @@ export class CellActionDialogComponent implements OnInit {
   get title(): string {
     switch (this.action) {
       case ACTION_TYPE.INCREMENT_DECREMENT_VALUE:
-        return`Increment or Decrement Action ${this.parameter?.name} `;
-       
+        return `Increment or Decrement Action ${this.parameter?.name} `;
+
       case ACTION_TYPE.DISPLAY_VALUE:
         return `${this.parameter?.name}`;
-        
+
       case ACTION_TYPE.SET_VALUE:
         return `Set ${this.parameter?.name}`;
       default:
-        return "Action";
+        return 'Action';
     }
-    
   }
 
   handleIncrementDecrement(action: 'increment' | 'decrement'): void {
@@ -70,30 +69,36 @@ export class CellActionDialogComponent implements OnInit {
   handleSave(): void {
     this.dialogRef.close();
     const parameterValue = this.parameter.value;
-    if (this.parameter.value.toString().startsWith('+') || this.parameter.value.toString().startsWith('0')) {
-      
+    // TO_DO: remove +, 0 from beginning
+    if (
+      this.parameter.value.toString().startsWith('+') ||
+      this.parameter.value.toString().startsWith('0')
+    ) {
     }
     const payload = { id: this.parameter.id, value: this.parameter.value };
     this.service.updateParameter(payload).subscribe({
       next: (res) => {
         this.parameter = res;
-        this.displayService.showToast(HELP_TEXT.SUCCESS_STATUS, HELP_TEXT.PARAMETER_UPDATE_SUCCESS)
-      }
+        this.displayService.showToast(
+          HELP_TEXT.SUCCESS_STATUS,
+          HELP_TEXT.PARAMETER_UPDATE_SUCCESS
+        );
+      },
     });
   }
 
   getErrorText(error: ValidationErrors | null): string {
     console.log(error);
     if (error?.['max']) {
-      return `Must be less than or equal to 100`
+      return `Must be less than or equal to 100`;
     }
     if (error?.['min']) {
-      return `Must be greater than or equal to -100`
+      return `Must be greater than or equal to -100`;
     }
     if (error?.['pattern']) {
-      return `Must be an integer value`
+      return `Must be an integer value`;
     }
-    return ''
+    return '';
   }
 
   ngOnInit(): void {
